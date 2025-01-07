@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LAB - 5</title>
+    </head>
+    <body>
+        <font size="4">
+            <form>
+                <fieldset>
+                    <legend><font color="red"><h2>Personal details</h2></font></legend>
+                    <table cellpadding="2" border="0" cellspacing="10">
+                        <tr>
+                            <td>Name</td>
+                            <td>:&nbsp;<input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td>:&nbsp;<input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>E-mail id</td>
+                            <td>:&nbsp;<input type="email"></td>
+                        </tr>
+                        <tr>
+                            <td>Gender</td>
+                            <td>:&nbsp;<input type="radio" id="M" name="Gender"><label for="M">&nbsp;Male</label>&nbsp;<input type="radio" id="F" name="Gender"><label for="F">&nbsp;Female</label></td>
+                        </tr>
+                        <tr>
+                            <td>DOB</td>
+                            <td>:&nbsp;<input type="date"></td>
+                        </tr>
+                        <tr>
+                            <td>Mobile#</td>
+                            <td>:&nbsp;<input type="tel"></td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <fieldset>
+                    <legend><font color="red"><h2>Educational Qualification</h2></font></legend>
+                    <table cellpadding="2" border="0" cellspacing="10">
+                        <tr>
+                            <td>Degree&emsp;</td>
+                            <td>:
+                                <select>
+                                    <optgroup label="Nothing to click">
+                                        <option>-- Select Group --</option>
+                                    </optgroup>
+                                    <optgroup label="UG">
+                                        <option>BE</option>
+                                        <option>BTech</option>
+                                        <option>BSc</option>
+                                        <option>BA</option>
+                                        <option>BCA</option>
+                                        <option>BBA</option>
+                                        <option>Others</option>
+                                    </optgroup>
+                                    <optgroup label="PG">
+                                        <option>ME</option>
+                                        <option>MTech</option>
+                                        <option>MSc</option>
+                                        <option>MA</option>
+                                        <option>MCA</option>
+                                        <option>MBA</option>
+                                        <option>Others</option>
+                                    </optgroup>
+                                    <optgroup label="PhD">
+                                        <option>Engineering</option>
+                                        <option>Science</option>
+                                        <option>Management</option>
+                                        <option>Others</option>
+                                    </optgroup>
+                                </select>
+                            </td>
+                            <td>Engineering:</td>
+                            <td>
+                                <input list="E">
+                                <datalist id="E">
+                                    <option value="-- Select Group --">
+                                    <option value="CSE">
+                                    <option value="ECE">
+                                    <option value="EEE">
+                                    <option value="CIVIL">
+                                    <option value="MECH">
+                                </datalist>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <table border="0" cellpadding="2" cellspacing="10">
+                    <tr>
+                        <td>Hobbies &emsp;</td>
+                        <td>
+                            :&nbsp;<input type="checkbox"><label>Playing chess</label>&nbsp;<input type="checkbox"><label>Reading Books</label>
+                        </td>
+                    </tr>
+                </table>
+                <label>Favourite Color: &nbsp;</label>
+                <input type="color" value="#000000">
+                <label><h2><font color="red">Address</font></h2></label>
+                <textarea rows="5" cols="256"></textarea>
+                <label>Attach Resume: &nbsp;</label>
+                <input type="file">
+                &emsp;
+                <input type="submit">
+            </form>
+        </font>
+    </body>
+</html>
