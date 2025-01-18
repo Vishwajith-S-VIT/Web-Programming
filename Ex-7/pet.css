@@ -1,0 +1,19 @@
+.rainbow_text{
+    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+}
+
+.desc{
+    line-height: 30pt;
+}
+
+body{
+    background-image: url("https://png.pngtree.com/thumb_back/fh260/back_our/20190623/ourmid/pngtree-pet-cat-pet-shop-cute-cartoon-background-image_238641.jpg");
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}

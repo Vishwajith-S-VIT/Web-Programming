@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>A website for pets</title>
+        <link rel="stylesheet" href="pet.css">
+    </head>
+    <body>
+        <h1 class="rainbow_text" align="center">A Website for Pet Animals</h1>
+        <h2 class="rainbow_text">Dogs</h2>
+        <p class="desc">Dogs are mammals with a coat of hair, sharp teeth, and a strong sense of smell and hearing. They are a subspecies of the gray wolf and are related to jackals and foxes.</p>
+        <h2 class="rainbow_text">Cats</h2>
+        <p class="desc">Cats are small, carnivorous mammals that are often kept as pets. They are known for their sharp retractable claws, keen senses, and agility.</p>
+        <svg width="800" height="500">
+            <style>
+                .ball{
+                    animation: ellipseAnimation 5s infinite ease-in-out;
+                }
+                @keyframes bounce{
+                    0%, 100%{
+                        transform: translateX(0);
+                    }
+                    50%{
+                        transform: translateX(100px);
+                    }
+                }
+                @keyframes ellipseAnimation {
+                    0% {
+                        transform: translateX(-200px) translateY(100px);
+                    }
+                    25% {
+                        transform: translateX(0px) translateY(0px);
+                    }
+                    50% {
+                        transform: translateX(200px) translateY(100px);
+                    }
+                    60%{
+                        transform: translateX(300px) translateY(100px) skewX(45deg) rotate(100deg);
+                    }
+                    75%{
+                        transform: translateX(100px) translateY(100px) skewX(45deg) rotate(100deg);
+                    }
+                    100% {
+                        transform: translateX(-200px) translateY(100px);
+                    }
+                  }
+            </style>
+            <circle class="ball" cx="250" cy="150" r="50" style="fill:red" />
+        </svg>
+        <h3 class="rainbow_text">Animation: A dog playing with a ball.</h3>
+    </body>
+</html>
