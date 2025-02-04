@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Name and Reg No</title>
+        <script>
+            rn = prompt("Enter your Registration Number:");
+            n = prompt("Enter your name:");
+            document.write("<h1 style='border: 10px red solid; text-align: center; width: auto;'>" + rn + "</h1>");
+            document.write();
+        </script>
+        <h1 style='border: 1px black solid; color: red; text-align: center;' id="name"></h1>
+        <script>
+            document.getElementById("name").innerHTML = n;
+        </script>
+    </head>
+</html>
