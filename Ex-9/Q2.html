@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Plane Seats</title>
+        <script>
+            const arr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            f = 0;
+            e = 5;
+
+            function Allocate(){
+                cl = parseInt(document.getElementById("fe").value);
+                nm = document.getElementById("nm").value;
+                if(cl == 1){
+                    if(f < 5){
+                        arr[f] = 1;
+                        f++;
+                        document.getElementById("text").innerHTML = "Name: " + nm + " Seat no: " + (f) + " Class: First <br>";
+                    }
+                    else{
+                        if(e < 10){
+                            if(confirm("Seats full in first class. Okay with economic class?")){
+                                arr[e] = 1;
+                                e++;
+                                document.getElementById("text").innerHTML = "Name: " + nm + " Seat no: " + (e) + " Class: Economic <br>";
+                            }
+                            else{
+                                document.getElementById("text").innerHTML = "";
+                            }
+                        }
+                        else{
+                            alert("No seats available.");
+                        }
+                    }
+                }
+                else if(cl == 2){
+                    if(e < 10){
+                        arr[e] = 1;
+                        e++;
+                        document.getElementById("text").innerHTML = "Name: " + nm + " Seat no: " + (e) + " Class: Economic <br>";
+                    }
+                    else{
+                        if(f < 5){
+                            if(confirm("Seats full in economic class. Okay with first class?")){
+                                arr[f] = 1;
+                                f++;
+                                document.getElementById("text").innerHTML = "Name: " + nm + " Seat no: " + (f) + " Class: First <br>";
+                            }
+                            else{
+                                document.getElementById("text").innerHTML = "";
+                            }
+                        }
+                        else{
+                            alert("No seats available.");
+                        }
+                    }
+                }
+                else{
+                    alert("Invalid Choice.");
+                    document.getElementById("text").innerHTML = "";
+                }
+                document.getElementById("fe").value="";
+                document.getElementById("nm").value="";
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <label>First class or Economy: </label>
+            <input type="text" id = "fe"> <br>
+            <label>Name: </label>
+            <input type="text" id="nm"> <br>
+            <input type="button" value="Allocate" onclick="Allocate()"> <br>
+        </form>
+        <p id="text"></p>
+    </body>
+</html>

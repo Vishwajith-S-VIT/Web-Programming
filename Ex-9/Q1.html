@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Weather</title>
+        <script>
+            const data = [55,62,68,74,59,45,41,58,60,67,65,78,82,88,91,92,90,93,87,80,78,79,72,68,61,59,55,65];
+            hot = pleasant = cold = 0;
+            for(i = 0; i < data.length; i++){
+                if(data[i] >= 85){
+                    hot++;
+                }
+                else if(data[i] < 60){
+                    cold++;
+                }
+                else{
+                    pleasant++;
+                }
+            }
+            document.writeln("The number of hot days are: " + hot + "<br>");
+            document.writeln("The number of pleasant days are: " + pleasant + "<br>");
+            document.writeln("The number of cold days are: " + cold + "<br>");
+            document.writeln("<table border=\"2\" cellpadding=\"2\" cellspacing=\"0\" align=\"center\" bordercolor=\"black\">");
+            document.writeln("<tr>");
+            document.writeln("<th>Temperature</th>");
+            document.writeln("<th>Condition</th>");
+            document.writeln("</tr>");
+            for(i = 0; i < data.length; i++){
+                document.writeln("<tr>");
+                document.writeln("<td>" + data[i] + "</td>");
+                if(data[i] >= 85){
+                    document.writeln("<td>Hot</td>");
+                }
+                else if(data[i] < 60){
+                    document.writeln("<td>Cold</td>");
+                }
+                else{
+                    document.writeln("<td>Pleasant</td>");
+                }
+                document.writeln("</tr>");
+            }
+            document.writeln("</table>");
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
