@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM Selection Methods</title>
+        <script>
+            setTimeout(function(){head1 = document.getElementById("heading1");head1.innerHTML="Updated Title";}, 2000);
+            setTimeout(function(){
+                un = document.getElementsByName("username");
+                for(i = 0; i < un.length; i++){
+                    un[i].value = "John Doe";
+                }
+            }, 2000);
+            setTimeout(function(){
+                pn = document.getElementsByName("gender");
+                para = document.getElementById("Gender");
+                for(i = 0; i < pn.length; i++){
+                    if(pn[i].checked){
+                        para.insertAdjacentHTML("beforeend", pn[i].value + "<br>");
+                    }
+                }
+            }, 4000);
+            setTimeout(function(){
+                np = document.getElementsByTagName("p");
+                pa = document.getElementById("op");
+                pa.innerHTML = np.length;
+            }, 3000)
+            setTimeout(function(){
+                divs = document.getElementsByClassName("input-field");
+                for(i = 0; i < divs.length; i++){
+                    divs[i].style.backgroundColor = "lightblue";
+                    divs[i].style.color = "black";
+                }
+            }, 5000);
+            setTimeout(function(){
+                ps = document.querySelector(".info");
+                ps.innerHTML = "This is the first info paragraph.";
+                gs = document.querySelector("input[name='gender']");
+                //ps.innerHTML = "This is the first info paragraph. The value of the first radio button is: \"" + gs.value + "\".";
+            }, 6000);
+            setTimeout(function(){
+                ps = document.querySelectorAll("p.info");
+                pa = document.getElementById("printarea");
+                for(i = 0; i < ps.length; i++){
+                    pa.insertAdjacentHTML("beforeend", ps[i].innerHTML + "<br>");
+                }
+                pa.insertAdjacentHTML("beforeend", "<br>");
+                hs = document.querySelectorAll("input.hobby");
+                for(i = 0; i < hs.length; i++){
+                    hs[i].checked = true;
+                    pa.insertAdjacentHTML("beforeend", hs[i].value + "<br>");
+                }
+            }, 7000);
+        </script>
+    </head>
+    <body>
+        <h1 id="heading1" align="center">The Title</h1>
+        <form>
+            <fieldset>
+                <legend>Forms</legend>
+                <input type="text" placeholder="Username" name="username"> &emsp;
+                <input type="text" placeholder="Username" name="username"> <br>
+                <input type="radio" name="gender" value="Male"> <label>Male</label> &emsp;
+                <input type="radio" name="gender" value="Female"> <label>Female</label> &emsp;
+                <input type="radio" name="gender" value="No preference"> <label>No preference</label> &emsp;
+                <input type="radio" name="gender" value="NOTA"> <label>NOTA</label> <br>
+                <div class="input-field" style="background-color: blue; color: white;">
+                    <p align="center">Hello there. This is under class "input-field".</p>
+                </div>
+                <div class="input-field" style="background-color: blue; color: white;">
+                    <p align="center">Hello there. This is under class "input-field".</p>
+                </div>
+                <label>Select your hobbies:</label> <br>
+                <input type="checkbox" class="hobby" value="Reading"> <label>Reading</label> &emsp;
+                <input type="checkbox" class="hobby" value="Writing"> <label>Writing</label> &emsp;
+                <input type="checkbox" class="hobby" value="Singing"> <label>Singing</label> &emsp;
+                <input type="checkbox" class="hobby" value="Dancing"> <label>Dancing</label> &emsp;
+                <input type="checkbox" class="hobby" value="Painting"> <label>Painting</label> <br> <br>
+                <input type="reset" value="Reset"> <br>
+            </fieldset>
+        </form>
+        <p id="Gender" style="border: 2px solid black; text-align: center;"></p>
+        <p id="op" style="border: 2px solid red; text-align: center;"></p>
+
+        <p class="info" style="border: 2px solid brown; text-align: center;">Paragraph with the class "info".</p>
+        <p class="info" style="border: 2px solid brown; text-align: center;">Second paragraph with the class "info".</p>
+        <p class="info" style="border: 2px solid brown; text-align: center;">Third paragraph with the class "info".</p>
+        <p class="info" style="border: 2px solid brown; text-align: center;">Fourth paragraph with the class "info".</p>
+
+        <div id="printarea" style="background-color: lime;"></div>
+    </body>
+</html>

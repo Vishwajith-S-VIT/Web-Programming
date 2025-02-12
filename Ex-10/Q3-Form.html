@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Grocery Form
+        </title>
+        <style>
+            input {
+                border: 3px solid transparent;
+                background-image: linear-gradient(white, white), linear-gradient(to bottom, yellow, green);
+                background-origin: border-box;
+                background-clip: padding-box, border-box;
+                outline: none;
+                border-radius: 40px;
+                font-size: 20px;
+            }
+
+            label{
+                font-size: 20px;
+            }
+            form{
+                justify-content: center;
+                align-items: center;
+                height: auto;
+            }
+            img{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                border: 3px solid transparent;
+                background-image: linear-gradient(white, white), linear-gradient(to bottom, yellow, green);
+                background-origin: border-box;
+                background-clip: padding-box, border-box;
+                outline: none;
+                font-size: 20px;
+            }
+            .container{
+                display: flex;
+                justify-content: left;
+                align-items: center;
+                height: auto;
+            }
+            input[type="checkbox"]{
+                width: 30px;
+                height: 30px;
+                border: 2px solid transparent;
+                background-image: linear-gradient(white, white), linear-gradient(to bottom, yellow, green);
+                background-origin: border-box;
+                background-clip: padding-box, border-box;
+                appearance: none;
+                -webkit-appearance: none;
+                outline: none;
+                border-radius: 10px;
+                padding: 0;
+            }
+            input[type="checkbox"]:checked{
+                border: 2px solid transparent;
+                background-image: linear-gradient(blue, blue), linear-gradient(to bottom, yellow, green);
+                background-origin: border-box;
+                background-clip: padding-box, border-box;
+                outline: none;
+                padding: 0;
+            }
+            .qty{
+                width: 50px;
+            }
+            input[type="submit"]{
+                padding: 5px 100px 5px 100px;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                border-radius: 5px;
+                background-image: linear-gradient(orange, orange);
+            }
+            .submit{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        </style>
+    </head>
+    <body style="background-color: olivedrab;">
+        <h1 align="center">Grocery Order Form</h1>
+        <form action="./Q3-Receipt.html" method="get">
+            <label>Customer Name</label> <br> <br>
+            <input type="text" name="cnamef" required> &emsp;
+            <input type="text" name="cnamel" required> <br> <br>
+
+            <label>Phone Number</label> <br> <br>
+            <input type="text" name="phone1" required> &emsp;
+            <input type="text" name="phone2" required> <br> <br>
+
+            <label>Email</label> <br> <br>
+            <input type="email" name="email" required> <br> <br>
+
+            <hr style="border-top: 1px solid black; margin: 0; padding: 0;">  
+
+            <h2>Products</h2>
+            <table>
+                <tr>
+                    <td><img src="https://hbkonline.in/pub/media/catalog/product/a/p/apple_fruit_powder3.jpg"> &emsp;</td>
+                    <td><input type="checkbox" name="apple" value="10" id="appleCheckbox" onchange="toggleQty('appleCheckbox', 'apple_qty')"> &nbsp;</td>
+                    <td><label>Apple</label>&emsp;</td>
+                    <td><label>$ 10</label>&emsp;&emsp;</td>
+                    <td>
+                        <input type="text" name="apple_qty" id="apple_qty" disabled> &nbsp; <label>kg</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="https://organicmandya.com/cdn/shop/files/BananaPachabale.jpg?v=1721369894&width=1500">
+                    </td>
+                    <td>
+                        <input type="checkbox" name="banana" value="5" id="bananaCheckbox" onchange="toggleQty('bananaCheckbox', 'banana_qty')"> &nbsp;
+                    </td>
+                    <td>
+                        <label>Banana</label>&emsp;
+                    </td>
+                    <td>
+                        <label>$ 5</label>&emsp;&emsp;
+                    </td>
+                    <td>
+                        <input type="text" name="banana_qty" id="banana_qty" disabled> &nbsp; <label>kg</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="https://cdn.shopify.com/s/files/1/1227/5204/files/Shephard_Avocado_1024_1024x1024_9f797849-e70b-42e2-ae10-b9aed0a474d4_480x480.jpg?v=1611806478">
+                    </td>
+                    <td>
+                        <input type="checkbox" name="avocado" value="7" id="avocadoCheckbox" onchange="toggleQty('avocadoCheckbox', 'avocado_qty')"> &nbsp;
+                    </td>
+                    <td>
+                        <label>Avocado</label>&emsp;
+                    </td>
+                    <td>
+                        <label>$ 7</label>&emsp;&emsp;
+                    </td>
+                    <td>
+                        <input type="text" name="avocado_qty" id="avocado_qty" disabled> &nbsp; <label>kg</label>
+                    </td>
+                </tr>
+            </table>
+            <div class="submit">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+        <script>
+            function toggleQty(checkboxId, qtyId) {
+                let checkbox = document.getElementById(checkboxId);
+                let qtyInput = document.getElementById(qtyId);
+                qtyInput.disabled = !checkbox.checked;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hospital Form</title>
+        <script>
+            let arr = [[1, "Alen", 39], [2, "Deena", 47], [3, "Diana", 21], [4, "Jack", 54], [5, "Jain", 23], [6, "Kelvin", 61], [7, "Louis", 69], [8, "Rex", 49]];
+            let i = j = 0;
+            let n = arr.length;
+            for(i = 0; i < n; i++){
+                for(j = 0; j < n-(i+1); j++){
+                    if(arr[j][2] < arr[j+1][2]){
+                        temp = arr[j];
+                        arr[j] = arr[j+1];
+                        arr[j+1] = temp;
+                    }
+                }
+            }
+            document.writeln("<h2 align='center'>The table sorted in terms of age</h2>")
+            document.writeln("<table align='center' border='1' cellpadding='5' cellspacing='0'>");
+            document.writeln("<tr>");
+            document.writeln("<th>P-ID</th>");
+            document.writeln("<th>Name</th><th>Age</th>");
+            document.writeln("</tr>");
+            for(i = 0; i < n; i++){
+                document.writeln("<tr>");
+                document.writeln("<td>" + arr[i][0] + "</td>");
+                document.writeln("<td>" + arr[i][1] + "</td>");
+                document.writeln("<td>" + arr[i][2] + "</td>");
+                document.writeln("</tr>");
+            }
+            document.writeln("</table>");
+            id = parseInt(prompt("Enter the P-ID to be searched:"));
+            if(id > 0 && id < 9){
+                alert("The P-ID is present in the table.");
+            }
+            else{
+                alert("The P-ID is not present in the table.");
+            }
+        </script>
+        <script>
+            function Print(){
+                l = parseInt(document.getElementById("lower").value);
+                u = parseInt(document.getElementById("upper").value);
+                res = document.getElementById("table1");
+                res.innerHTML="";
+                res.insertAdjacentHTML('beforeend', "<tr><th>P-ID</th><th>Name</th><th>Age</th></tr>");
+                for(i = 0; i < n; i++){
+                    if(arr[i][2] <= u && arr[i][2] >= l){
+                        res.insertAdjacentHTML('beforeend', "<tr>" + "<td>" + arr[i][0] + "</td>" + "<td>" + arr[i][1] + "</td>" + "<td>" + arr[i][2] + "</td>" + "</tr>");
+                    }
+                }
+                //return false;
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <fieldset>
+                <legend>Age range calculation</legend>
+                <label>Lower range for age: &nbsp;</label>
+                <input type="number" id="lower"> <br>
+                <label>Upper range for age: &nbsp;</label>
+                <input type="number" id="upper"> <br>
+                <input type="button" value="Submit" onclick="Print()">
+            </fieldset>
+        </form> <br>
+        <table id='table1' align='center' border='1' cellpadding='5' cellspacing='0'></table>
+    </body>
+</html>
