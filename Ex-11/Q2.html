@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <title>23BCE1145</title>
+        <script>
+            window.onload = function(){
+                var t;
+                var x = document.getElementById("disp");
+
+                document.getElementById("bday").addEventListener("mouseover", function (){
+                    if (this.value === ''){
+                        document.getElementById("disp2").innerHTML = 'Please select a date.';
+                        return;
+                    }
+
+                    const date1 = new Date();
+                    const date2 = new Date(this.value);
+
+                    let age = date1.getFullYear() - date2.getFullYear();
+                    const MD = date1.getMonth() - date2.getMonth();
+
+                    if (MD < 0 || (MD === 0 && date1.getDate() < date2.getDate())){
+                        age--;
+                    }
+                    if(date2 > date1){
+                        age=0;
+                    }
+
+                    document.getElementById("disp2").innerHTML = age + " years old.";
+                });
+            };
+            function StartFn(){
+                t = setInterval(Clock, 1000);
+                tsecs = 1;
+                function Clock() {
+                    tsecs++; 
+
+                    var hr = Math.floor(tsecs / 3600);  
+                    var mins = Math.floor((tsecs % 3600) / 60);  
+                    var secs = tsecs % 60;  
+                    hr = hr < 10 ? "0" + hr : hr;
+                    mins = mins < 10 ? "0" + mins : mins;
+                    secs = secs < 10 ? "0" + secs : secs;
+
+                    document.getElementById("clk").innerHTML = hr + ":" + mins + ":" + secs;
+                }
+            }
+
+            function StopFn(){
+                window.clearInterval(t);
+            }
+
+            function ResetFn(){
+                document.getElementById("clk").innerHTML = "00:00:00";
+                tsecs = 0;
+            }
+
+
+            function limit(element){
+                var charsLeftDisplay = document.getElementById("charsLeft");
+                charsLeftDisplay.innerHTML = "Character count: " + element.value.length;
+            }
+        </script>
+    </head>
+
+    <body>
+        <table border="1" cellpadding="10" cellspacing="10" align="center">
+            <tr>
+                <td>
+                    <div align="center">
+                        <h1> Stopwatch </h1>
+                        <p id="clk"></p>
+                        <input type="button" value="Start" id="st" onclick="StartFn()">
+                        <input type="button" value="Stop" id="sp" onclick="StopFn()">
+                        <input type="button" value="Reset" id="re" onclick="ResetFn()">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div align="center">
+                        <h1> Age calculator</h1>
+                        <input type="date" id="bday">
+                        <p id="disp2"></p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div align="center">
+                        <h1> Dynamic count for characters</h1>
+                        <textarea onkeyup="limit(this)"></textarea>
+                        <p id="charsLeft">Character count: 0</p>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

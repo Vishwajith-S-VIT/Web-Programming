@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ex-11 Q1</title>
+        <script>
+            let count = 0;
+
+            function ButtonMR(b){
+                b.style.color = "green";
+            }
+            
+            function ButtonMO(b){
+                b.style.color = "red";
+            }
+
+            function TextAreaFI(tea){
+                tea.style.backgroundColor = "yellow";
+                tea.value = "Hello there."
+            }
+
+            function TextAreaFO(tea){
+                tea.style.backgroundColor = "green";
+                tea.value = "Bye Bye."
+            }
+
+            function GlobalClick(){
+                ip3 = document.getElementById("ip3");
+                ip3.value = ""+count;
+                //alert(count);
+            }
+
+            function AddList(){
+                val = document.getElementById("ip1").value;
+                ul1 = document.getElementById("ul1");
+                if(val == ""){
+                    alert("Enter a value.");
+                    return;
+                }
+                let li1 = document.createElement("li");
+                let tn1 = document.createTextNode(val);
+                li1.appendChild(tn1);
+                ul1.appendChild(li1);
+                count++;
+            }
+
+            function TableR(){
+                if(count > 0){
+                    count++;
+                    return;
+                }
+                let t1 = document.createElement("table");
+                t1.border = "1";
+                t1.cellPadding = "5";
+                t1.cellSpacing = "0";
+                let rows = [];
+                let cells = [];
+                let i = j = 0;
+                let n = parseInt(document.getElementById("r").value);
+                let m = parseInt(document.getElementById("c").value);
+                if(n <= 0 || m <= 0){
+                    alert("Enter appropriate values for the number of rows and columns.");
+                    return;
+                }
+                for(i = 0; i < n; i++){
+                    let r1 = t1.insertRow();
+                    let c = [];
+                    for(j = 0; j < m; j++){
+                        let c1 = r1.insertCell(j);
+                        c1.textContent = `arr[${i}][${j}]`;
+                        c.push(c1);
+                    }
+                    cells.push(c);
+                    rows.push(r1);
+                }
+                document.body.appendChild(t1);
+
+                let br = document.createElement("br");
+                document.body.appendChild(br);
+                //document.body.appendChild(br.cloneNode());
+
+                let b1 = document.createElement("button");
+                b1.textContent = "MouseOver Example";
+                b1.style.color = "red";
+                b1.setAttribute("onmouseover", "ButtonMR(this)");
+                b1.setAttribute("onmouseout", "ButtonMO(this)");
+                b1.onclick = function(){count++};
+                document.body.appendChild(b1);
+                document.body.appendChild(br.cloneNode());
+                document.body.appendChild(br.cloneNode());
+
+                let tea1 = document.createElement("textarea");
+                tea1.setAttribute("rows", "10");
+                tea1.setAttribute("cols", "40");
+                tea1.style.backgroundColor = "green";
+                tea1.setAttribute("onfocusin", "TextAreaFI(this)");
+                tea1.setAttribute("onfocusout", "TextAreaFO(this)");
+                document.body.appendChild(tea1);
+                document.body.appendChild(br.cloneNode());
+                document.body.appendChild(br.cloneNode());
+
+                let ip1 = document.createElement("input");
+                ip1.setAttribute("type", "text");
+                ip1.setAttribute("id", "ip1");
+                let bt1 = document.createElement("button");
+                bt1.textContent = "Click Me";
+                bt1.setAttribute("onclick", "AddList()");
+                let ul1 = document.createElement("ul");
+                ul1.setAttribute("id", "ul1");
+                document.body.appendChild(ip1);
+                document.body.appendChild(br.cloneNode());
+                document.body.appendChild(br.cloneNode());
+                document.body.appendChild(bt1);
+                document.body.appendChild(br.cloneNode());
+                document.body.appendChild(ul1);
+                document.body.appendChild(br.cloneNode());
+                
+                count++;
+
+                let ip2 = document.createElement("input");
+                let ip3 = document.createElement("input");
+                let tn2 = document.createTextNode("\t\t");
+                ip2.type = "text";
+                ip3.type = "number";
+                ip3.id = "ip3";
+                ip3.readOnly = true;
+                document.body.appendChild(ip2);
+                document.body.appendChild(tn2);
+                document.body.appendChild(ip3);
+                document.body.appendChild(br.cloneNode());
+                let bt2 = document.createElement("button");
+                bt2.textContent = "Get the number of clicks (Excluding this button)";
+                bt2.setAttribute("onclick", "GlobalClick()");
+                document.body.appendChild(bt2);
+            }
+        </script>
+    </head>
+    <body>
+        <h1 align="center">Dynamic Tables</h1>
+        <form>
+            <fieldset>
+                <legend>Values for Dynamic table</legend>
+                <table border="0" cellpadding="5">
+                    <tr>
+                        <td>
+                            <label>Number of rows: </label>
+                        </td>
+                        <td>
+                            <input id="r" type="number">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Number of columns: </label>
+                        </td>
+                        <td>
+                            <input id="c" type="number">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" value="Click Me" onclick="TableR()">
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+    </body>
+</html>

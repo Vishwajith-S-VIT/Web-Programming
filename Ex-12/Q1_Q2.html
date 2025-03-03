@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Canvas
+        </title>
+    </head>
+    <body>
+        <canvas id="MC" width="1325" height="750" style="border: 1px solid black;">
+
+        </canvas>
+        <script>
+            x = 550;
+            dx = 1;
+            function boat(){
+                canvas = document.getElementById("MC");
+                ctx = canvas.getContext("2d");
+                
+                ctx.beginPath();
+                ctx.fillStyle = "orange";
+                ctx.strokeStyle = "blue";
+                ctx.fillRect(100, 400, 200, 225);
+                ctx.strokeRect(100, 400, 200, 225);
+                ctx.closePath();
+
+                ctx.beginPath();
+                ctx.moveTo(100, 400);
+                ctx.lineTo(200, 300);
+                ctx.lineTo(300, 400);
+                ctx.stroke();
+                ctx.fillStyle = "red";
+                ctx.fill();
+                ctx.closePath();
+
+                ctx.beginPath();
+                ctx.fillStyle = "blue";
+                ctx.strokeStyle = "grey";
+                ctx.fillRect(110, 420, 50, 50);
+                ctx.strokeRect(110, 420, 50, 50);
+                ctx.closePath();
+
+                ctx.beginPath();
+                ctx.fillStyle = "brown";
+                ctx.strokeStyle = "blue";
+                ctx.fillRect(180, 505, 40, 120);
+                ctx.strokeRect(180, 505, 40, 120);
+                ctx.closePath();
+
+                ctx.beginPath();
+                ctx.fillStyle = "grey";
+                ctx.arc(200, 700, 20, 0, Math.PI*2);
+                ctx.fill();
+                ctx.stroke();
+                ctx.closePath();
+                ctx.beginPath();
+                ctx.arc(225, 715, 15, 0, Math.PI*2);
+                ctx.fill();
+                ctx.stroke();
+                ctx.closePath();
+                ctx.beginPath();
+                ctx.arc(250, 695, 23, 0, Math.PI*2);
+                ctx.fill();
+                ctx.stroke();
+                ctx.closePath();
+
+                ctx.beginPath();
+                ctx.fillStyle = "skyblue";
+                ctx.ellipse(620, 490, 300, 125, 0, 0, Math.PI*2);
+                ctx.fill();
+                ctx.stroke();
+                ctx.closePath();
+
+                ctx.beginPath();
+                x+=dx;
+                if(x > 765 || x < 335){
+                    dx = -dx;
+                }
+                ctx.fillStyle = "brown";
+                ctx.moveTo(x+20, 440);
+                ctx.lineTo(x+120, 440);
+                ctx.lineTo(x+100, 460);
+                ctx.lineTo(x+40, 460);
+                ctx.lineTo(x+20, 440);
+                ctx.fill();
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.fillStyle = "yellow";
+                ctx.arc(1200, 140, 75, 0, Math.PI*2);
+                ctx.fill();
+                ctx.closePath();
+                ctx.strokeStyle = "yellow";
+                ctx.lineWidth = 3;
+                let n=12;
+                for(let i=0;i<n;i++){
+                    ctx.beginPath();
+                    ctx.moveTo(1200+80*Math.cos(2*Math.PI*i/n), 140+80*Math.sin(2*Math.PI*i/n));
+                    ctx.lineTo(1200+120*Math.cos(2*Math.PI*i/n),140+120*Math.sin(2*Math.PI*i/n));
+                    ctx.stroke();
+                    ctx.closePath();
+                }
+
+                ctx.beginPath();
+                ctx.strokeStyle = "blue";
+                ctx.fillStyle = "green";
+                ctx.lineWidth = 1;
+                ctx.fillRect(1195, 520, 10, 150);
+                ctx.ellipse(1165, 550, 40, 20, 3*(Math.PI / 4), 0, Math.PI*2);
+                ctx.ellipse(1235, 550, 40, 20, Math.PI/4, 0, Math.PI*2);
+                ctx.fill();
+                ctx.closePath();
+
+                ctx.beginPath();
+                ctx.fillStyle = "pink";
+                ctx.ellipse(1160, 460, 40, 30, Math.PI/2, 0, Math.PI*2);
+                ctx.ellipse(1180, 460, 80, 30, Math.PI/2, 0, Math.PI*2);
+                ctx.fill();
+                ctx.closePath();
+
+                ctx.beginPath();
+                ctx.ellipse(1220, 460, 80, 30, Math.PI/2, 0, Math.PI*2);
+                ctx.ellipse(1240, 460, 40, 30, Math.PI/2, 0, Math.PI*2);
+                ctx.fill();
+                ctx.closePath();
+
+                ctx.beginPath();
+                ctx.fillStyle = "yellow";
+                ctx.arc(1200, 460, 20, 0, Math.PI*2);
+                ctx.fill();
+                ctx.closePath();
+
+                ctx.beginPath();
+                ctx.fillStyle = "yellow";
+                ctx.arc(1080, 610, 30, 0, Math.PI*2);
+                ctx.fill();
+                ctx.stroke();
+                ctx.closePath();
+                ctx.beginPath();
+                ctx.fillStyle = "yellow";
+                ctx.arc(1100, 580, 20, 0, Math.PI*2);
+                ctx.fill();
+                ctx.stroke();
+                ctx.closePath();
+
+                ctx.beginPath();
+                ctx.fillStyle = "black";
+                ctx.arc(1105, 575, 5, 0, Math.PI*2);
+                ctx.fill();
+                ctx.stroke();
+                ctx.closePath();
+
+                ctx.beginPath();
+                ctx.fillStyle = "orange";
+                ctx.moveTo(1115, 580);
+                ctx.lineTo(1135, 590);
+                ctx.lineTo(1115, 600);
+                ctx.lineTo(1115, 580);
+                ctx.fill();
+                ctx.closePath();
+
+                ctx.beginPath();
+                ctx.fillStyle = "grey";
+                ctx.arc(1105, 700, 18, 0, Math.PI*2);
+                ctx.fill();
+                ctx.stroke();
+                ctx.closePath();
+                ctx.beginPath();
+                ctx.arc(1125, 720, 15, 0, Math.PI*2);
+                ctx.fill();
+                ctx.stroke();
+                ctx.closePath();
+
+                requestAnimationFrame(boat);
+            }
+            boat();
+        </script>
+    </body>
+</html>
